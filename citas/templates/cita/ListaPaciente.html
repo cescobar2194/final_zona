@@ -1,0 +1,14 @@
+{% extends 'cita/base.html' %}
+{% block content %}
+<h1 align="center">Lista de Pacientes</h1>
+<a class="btn btn-default" href="{% url 'NuevoPaciente' %}"><span class="glyphicon glyphicon-plus"> Nuevo Paciente</span></a>
+    <div class="post">
+      {% for post in pacientes %}
+         <div class="post">
+             <h1><a href="{% url 'DetallePaciente' pk=post.pk %}">{{ post.nombre }}</a></h1>
+             <h2>{{ post.apellido }}</h2>
+             <p>{{ post.texto|linebreaksbr }}</p>
+         </div>
+      {% endfor %}
+    </div>
+{% endblock %}

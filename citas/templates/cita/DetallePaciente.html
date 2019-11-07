@@ -1,0 +1,15 @@
+{% extends 'cita/base.html' %}
+{% block content %}
+<a class="btn btn-default" href="{% url 'NuevoPaciente' %}"><span class="glyphicon glyphicon-plus"> Nuevo Paciente</span></a>
+    <div class="post">
+      {% if pacientes.nombre %}
+      {% endif %}
+       <h1>Nombre paciente: {{ pacientes.nombre }}</h1>
+       <h3>Apellido paciente: {{ pacientes.apellido }}</h3>
+       <h4>Edad: {{ pacientes.edad }}</h4>
+       <p>Sexo: {{ pacientes.sexo }}</p>
+       <p>{{ pacientes.texto|linebreaksbr }}</p>
+    </div>
+<a class="btn btn-default" href="{% url 'EditarPaciente' pk=pacientes.pk %}"><span class="glyphicon glyphicon-pencil"> Editar Paciente</span></a>
+<a class="btn btn-default" href="{% url 'EliminarPaciente' pk=pacientes.pk %}"><span class="glyphicon glyphicon-pencil"> Eliminar Paciente</span></a>
+{% endblock %}

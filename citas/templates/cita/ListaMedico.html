@@ -1,0 +1,16 @@
+{% extends 'cita/base.html' %}
+{% block content %}
+
+<h1 align="center">Lista de Médicos</h1>
+<img src="https://cdn.icon-icons.com/icons2/979/PNG/256/Doctor_Male_icon-icons.com_75051.png" alt="" width="50px" height="50px">
+<a class="btn btn-default" href="{% url 'NuevoMedico' %}"><span class="glyphicon glyphicon-plus"> Nuevo Medico</span></a>
+    <div class="post">
+      {% for post in medicos %}
+         <div class="post">
+             <h1><a href="{% url 'DetalleMedico' pk=post.pk %}">{{ post.nombre }}</a></h1>
+             <h4>{{ post.apellido }}</h4>
+             <p>{{ post.texto|linebreaksbr }}</p>
+         </div>
+      {% endfor %}
+    </div>
+{% endblock %}

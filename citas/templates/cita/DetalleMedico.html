@@ -1,0 +1,16 @@
+{% extends 'cita/base.html' %}
+{% block content %}
+<a class="btn btn-default" href="{% url 'NuevoMedico' %}"><span class="glyphicon glyphicon-plus"> Nuevo Medico</span></a>
+    <div class="post">
+      {% if medicos.nombre %}
+      {% endif %}
+       <h1>Nombre médico: {{ medicos.nombre }}</h1>
+       <h3>Apellido médico: {{ medicos.apellido }}</h3>
+       <h4>Especialidad: {{ medicos.especialidad }}</h4>
+       <h4>Telefono: {{ medicos.telefono }}</h4>
+       <p>Fecha de nacimiento: {{ medicos.fecha_nacimiento }}</p>
+       <p>{{ citas.texto|linebreaksbr }}</p>
+    </div>
+<a class="btn btn-default" href="{% url 'EditarMedico' pk=medicos.pk %}"><span class="glyphicon glyphicon-pencil"> Editar Medico</span></a>
+<a class="btn btn-default" href="{% url 'EliminarMedico' pk=medicos.pk %}"><span class="glyphicon glyphicon-remove"> Eliminar Medico</span></a>
+{% endblock %}

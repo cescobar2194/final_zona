@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .forms import CitaForm, PacienteForm, MedicoForm
-from cita.models import Medico, Paciente, Cita
+from .models import Medico, Paciente, Cita
 from django.contrib.auth.decorators import login_required
 
 #Cita

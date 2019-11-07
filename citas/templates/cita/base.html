@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Clínica</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/cita.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    </head>
+    <body bgcolor="#FFD6BD">
+      <div class="page-header">
+         {% if user.is_authenticated %}
+            <p class="top-menu">Bienvenido {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+        {% else %}
+            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+        {% endif %}
+        <h1><a href="/">Clínica</a></h1>
+        <div class="header">
+        <nav>
+          <ul class="nav">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/">Citas</a>
+              <ul>
+                <li><a href="{% url 'NuevaCita' %}">Agregar Cita</a></li>
+              </ul>
+            </li>
+            <li><a href="/pacientes/">Listar Pacientes</a>
+              <ul>
+                <li><a href="{% url 'NuevoPaciente' %}">Nuevo Paciente</a></li>
+              </ul>
+            </li>
+            <li><a href="/medicos/">Medicos</a>
+              <ul>
+                <li><a href="{% url 'NuevoMedico' %}">Nuevo Medico</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        </div>
+      </div>
+      <div class="content container">
+        <div class="row">
+          <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+          </div>
+          </div>
+        </div>
+    </body>
+</html>
